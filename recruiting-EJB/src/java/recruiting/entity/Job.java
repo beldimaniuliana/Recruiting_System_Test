@@ -5,8 +5,10 @@
  */
 package recruiting.entity;
 
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,11 +22,29 @@ public class Job implements java.io.Serializable {
      int id;
      String position;
      String requirements;
-     int id_candidate;
+     
+     @ManyToMany//(mappedBy = "jobs")
+     private Collection<Candidate> candidates;
+    
      String locuri;
      String status;
      String data;
 
+    public Job(int id, String position, String requirements, Collection<Candidate> candidates, String locuri, String status, String data) {
+        this.id = id;
+        this.position = position;
+        this.requirements = requirements;
+        this.candidates = candidates;
+        this.locuri = locuri;
+        this.status = status;
+        this.data = data;
+    }
+
+     public Job() {
+    }
+     
+     
+     
     public int getId() {
         return id;
     }
@@ -48,7 +68,7 @@ public class Job implements java.io.Serializable {
     public void setRequirements(String requirements) {
         this.requirements = requirements;
     }
-
+/*
     public int getId_candidate() {
         return id_candidate;
     }
@@ -56,7 +76,7 @@ public class Job implements java.io.Serializable {
     public void setId_candidate(int id_candidate) {
         this.id_candidate = id_candidate;
     }
-
+*/
     public String getLocuri() {
         return locuri;
     }

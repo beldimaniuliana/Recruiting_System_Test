@@ -25,6 +25,17 @@ public class Privilage implements java.io.Serializable {
    /* @OneToMany(mappedBy="privilages")
     Collection<Group> listOfPrivilages;
     */
+
+    public Privilage(int id, String name, String discription) {
+        this.id = id;
+        this.name = name;
+        this.discription = discription;
+    }
+    
+      public Privilage() {
+    }
+      
+    
     public int getId() {
         return id;
     }

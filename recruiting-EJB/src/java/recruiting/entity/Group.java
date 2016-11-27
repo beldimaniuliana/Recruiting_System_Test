@@ -8,7 +8,6 @@ package recruiting.entity;
 import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -23,10 +22,22 @@ public class Group implements java.io.Serializable {
    @Id
    private int id;
    private String name;
+   
    private @OneToMany
    Collection<Privilage> listOfPrivilages;
+   
    @OneToOne(mappedBy="Id_group")
    private User user;
+
+    public Group(int id, String name, Collection<Privilage> listOfPrivilages, User user) {
+        this.id = id;
+        this.name = name;
+        this.listOfPrivilages = listOfPrivilages;
+        this.user = user;
+    }
+   
+   public Group() {  }
+   
 
     public int getId() {
         return id;

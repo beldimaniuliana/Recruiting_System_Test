@@ -29,12 +29,15 @@ public class Candidate implements Serializable{
     private String last_name;
     private int id_job;
 
-    public Candidate(int id, String first_name, String last_name, int id_job) {
+
+    public Candidate(int id, String first_name, String last_name, int id_job, Collection<Job> jobs) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.id_job = id_job;
+        this.jobs = jobs;
     }
+    
     
     public Candidate(){}
   
