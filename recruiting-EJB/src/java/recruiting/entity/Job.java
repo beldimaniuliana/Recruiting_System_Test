@@ -8,6 +8,8 @@ package recruiting.entity;
 import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -18,33 +20,32 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "EJB_Job")
 public class Job implements java.io.Serializable {
-    @Id
+  
      int id;
-     String position;
-     String requirements;
-     
-     @ManyToMany//(mappedBy = "jobs")
-     private Collection<Candidate> candidates;
+     private String position;
+     private String requirements;
+     private String locuri;
+     private String status;
+     private String data;
     
-     String locuri;
-     String status;
-     String data;
-
-    public Job(int id, String position, String requirements, Collection<Candidate> candidates, String locuri, String status, String data) {
+     
+     public Job() {
+    }
+     
+     
+      public Job(int id, String position, String requirements, String locuri, String status, String data) {
         this.id = id;
         this.position = position;
         this.requirements = requirements;
-        this.candidates = candidates;
         this.locuri = locuri;
         this.status = status;
         this.data = data;
     }
 
-     public Job() {
-    }
      
-     
-     
+    
+   
+     @Id
     public int getId() {
         return id;
     }
@@ -68,15 +69,7 @@ public class Job implements java.io.Serializable {
     public void setRequirements(String requirements) {
         this.requirements = requirements;
     }
-/*
-    public int getId_candidate() {
-        return id_candidate;
-    }
-
-    public void setId_candidate(int id_candidate) {
-        this.id_candidate = id_candidate;
-    }
-*/
+    
     public String getLocuri() {
         return locuri;
     }
@@ -100,4 +93,27 @@ public class Job implements java.io.Serializable {
     public void setData(String data) {
         this.data = data;
     }
+     
+    
+    
+    private Collection<Candidate> candidates;      
+    @ManyToMany
+    @JoinTable(name="JOB_CANDIDATE",joinColumns=@JoinColumn(name="id_job"),
+               inverseJoinColumns=@JoinColumn(name="id_privilage"))
+    public Collection<Candidate> getCandidates() {
+        return candidates;
+     }
+
+    public void setCandidates(Collection<Candidate> candidates) {
+        this.candidates = candidates;
+    }
+
+    
+      public void addCandidate(Candidate candidate) {
+         this.getCandidates().add(candidate);
+        
+    }
+        
+     
+  
 }

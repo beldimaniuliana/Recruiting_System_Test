@@ -5,10 +5,13 @@ import javax.ejb.EJBException;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import recruiting.entity.Candidate;
 import recruiting.entity.Group;
-
+import recruiting.entity.Job;
+import recruiting.entity.Privilage;
 import recruiting.entity.Test;
 import recruiting.entity.User;
+
 
 @Stateful
 public class RequestBean implements Request{
@@ -20,16 +23,33 @@ public class RequestBean implements Request{
         em.persist(test);
     }
     
-    public void createUser(int id, String username, String password, String first_name, String last_name, Group Id_group, String email, String phone, String active){
+    public void createJob(int id, String position, String requirements, String locuri, String status, String data){
+        Job job = new Job(id,position,requirements,locuri,status,data);
+         em.persist(job);
+    }
+
+    
+    public void createCandidate(int i, String first_name, String last_name) {
+       Candidate candidate = new Candidate(i, first_name, last_name);
+        em.persist(candidate);
+    }
+
+    
+    public void addCandidate(int candidateId, int jobId) {
+           Candidate candidate = em.find(Candidate.class, candidateId);
+            Job job = em.find(Job.class, jobId);
+
+            candidate.addJob(job);
+            job.addCandidate(candidate);
+    }
+    
+    
+    
+     /*
+    public void createUser(int id, String username, String password, String first_name, String last_name, int Id_group, String email, String phone, String active){
         User user = new User(id, username, password, first_name, last_name, Id_group, email, phone, active);
         em.persist(user);
     }
-
-    @Override
-    public void createUser(int i, String iuli_200, String pass, String beldiman, String iuliana, int i0, String iulianaemailcom, String yutyu, String atrue) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-   
- 
+*/
+  
 }

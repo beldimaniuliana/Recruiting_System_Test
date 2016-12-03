@@ -1,4 +1,3 @@
-
 package recruiting.entity;
 
 import javax.persistence.Entity;
@@ -82,7 +81,6 @@ public class User {
     public int getId_group() {
         return id_group;
     }
-
     public void setId_group(int id_group) {
         this.id_group = id_group;
     }

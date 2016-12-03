@@ -21,27 +21,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "EJB_Candidate")
 public class Candidate implements Serializable{
-
+ 
     @Id
-    @EJB
     private int id;
     private String first_name;
     private String last_name;
-    private int id_job;
+    
+    
+    public Candidate(){
+    }
+    
 
-
-    public Candidate(int id, String first_name, String last_name, int id_job, Collection<Job> jobs) {
+    public Candidate(int id, String first_name, String last_name) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.id_job = id_job;
-        this.jobs = jobs;
     }
     
     
-    public Candidate(){}
-  
-
     public int getId() {
         return id;
     }
@@ -66,19 +63,25 @@ public class Candidate implements Serializable{
         this.last_name = last_name;
     }
 
-    public int getId_job() {
-        return id_job;
-    }
-
-    public void setId_job(int id_job) {
-        this.id_job = id_job;
-    }
     
     @ManyToMany(mappedBy = "candidates")
     private Collection<Job> jobs;
     
+    public Collection<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(Collection<Job> jobs) {
+        this.jobs = jobs;
+    }
+
     
+    public void addJob(Job job) {
+        this.getJobs().add(job);
+        
+    }
     
-    
+ 
+
     
 }
