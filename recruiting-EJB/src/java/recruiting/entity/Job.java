@@ -109,11 +109,15 @@ public class Job implements java.io.Serializable {
     }
 
     
-      public void addCandidate(Candidate candidate) {
+    public void addCandidate(Candidate candidate) {
          this.getCandidates().add(candidate);
         
     }
+
+    
+    public void dropCandidate(Candidate candidate) {
+            this.getCandidates().remove(candidate);
+    }
         
-     
   
 }

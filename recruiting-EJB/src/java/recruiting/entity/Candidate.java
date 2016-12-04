@@ -80,8 +80,12 @@ public class Candidate implements Serializable{
         this.getJobs().add(job);
         
     }
+
+    public void dropJob(Job job) {
+        this.getJobs().remove(job);
+        }
     
- 
+   
 
     
 }
