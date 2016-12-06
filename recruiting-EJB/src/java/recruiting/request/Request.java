@@ -20,6 +20,9 @@ public interface Request {
     void removeCandidate(int candidateId);
    
     void removeJob(int jobId);
+    
+    void createGroup(int id, String name);
+    void addPrivilage(int privilageId,int groupId);
 
 }
 

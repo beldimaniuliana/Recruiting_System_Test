@@ -14,12 +14,15 @@ public class Main {
     public static void main(String[] args) {
       //Functionale
             // insert tabele job, candidate + insert in tabela de legatura
-        request.createCandidate(1, "first_name", "last_name");
-        request.createJob(1, "position", "requirements", "locuri", "status", "data");
-        request.addCandidate(1, 1);
+        //request.createCandidate(1, "first_name", "last_name");
+        //request.createJob(1, "position", "requirements", "locuri", "status", "data");
+        //request.addCandidate(1, 1);
             // delete din tabelele job, candidate + tabela de legatura
-        request.removeCandidate(1);
-        request.removeJob(1);
+        //request.removeCandidate(1);
+        //request.removeJob(1);
+        
+        request.createGroup(1, "name");
+        request.addPrivilage(1, 1);
         
         
      //Nefunctionale   

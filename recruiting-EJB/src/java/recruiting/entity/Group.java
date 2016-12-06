@@ -5,39 +5,34 @@
  */
 package recruiting.entity;
 
+import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-/**
- *
- * @author Stefan
- */
 @Entity
-@Table(name = "EJB_Group")
-public class Group implements java.io.Serializable {
-   @Id
-   private int id;
-   private String name;
-   
-   private @OneToMany
-   Collection<Privilage> listOfPrivilages;
-   
-   @OneToOne(mappedBy="Id_group")
-   private User user;
 
-    public Group(int id, String name, Collection<Privilage> listOfPrivilages, User user) {
+public class Group implements Serializable 
+{
+    @Id
+    //@Column(name="GROUP_ID")
+    private int id;
+    private String name;
+    
+    @OneToMany
+    //@JoinColumn(name="GR_ID",referencedColumnName = "GROUP_ID")
+    private Collection<Privilage> privilages;
+    
+    public Group() {}
+    
+    public Group(int id, String name) {
         this.id = id;
         this.name = name;
-        this.listOfPrivilages = listOfPrivilages;
-        this.user = user;
     }
-   
-   public Group() {  }
-   
 
     public int getId() {
         return id;
@@ -54,13 +49,19 @@ public class Group implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
-/*
-    public int getId_prvilage() {
-        return id_prvilage;
+
+    public Collection<Privilage> getPrivilages() {
+        return privilages;
     }
 
-    public void setId_prvilage(int id_prvilage) {
-        this.id_prvilage = id_prvilage;
+    public void setPrivilages(Collection<Privilage> privilages) {
+        this.privilages = privilages;
     }
-  */
+    
+  
+    public void addPrivilage(Privilage privilages) {
+        this.getPrivilages().add(privilages);
+        
+    }
+    
 }

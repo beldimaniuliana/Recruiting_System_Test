@@ -92,6 +92,21 @@ public class RequestBean implements Request{
         }*/
     }
     
+    public void createGroup(int i,String name)
+    {
+        
+        Group group = new Group(i,name);
+        em.persist(group);
+       
+    }
+    
+    public void addPrivilage(int privilageId, int groupId)
+    {
+        Privilage privilage = em.find(Privilage.class,privilageId);
+        Group group = em.find(Group.class, groupId);
+            group.addPrivilage(privilage);
+    }
+    
 }
 
 

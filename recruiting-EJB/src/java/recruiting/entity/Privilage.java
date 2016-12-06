@@ -5,43 +5,24 @@
  */
 package recruiting.entity;
 
-import java.util.Collection;
+import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-/**
- *
- * @author Stefan
- */
 @Entity
-@Table(name = "EJB_Privilage")
-public class Privilage implements java.io.Serializable {
+public class Privilage implements Serializable
+{
     @Id
-    private int id;
+    //@Column(name="GR_ID")
     private String name;
-    private String discription;
-   /* @OneToMany(mappedBy="privilages")
-    Collection<Group> listOfPrivilages;
-    */
-
-    public Privilage(int id, String name, String discription) {
-        this.id = id;
+    private String description;
+    
+    public Privilage() {}
+    
+    public Privilage(String name, String description) {
         this.name = name;
-        this.discription = discription;
-    }
-    
-      public Privilage() {
-    }
-      
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.description = description;
     }
 
     public String getName() {
@@ -52,11 +33,13 @@ public class Privilage implements java.io.Serializable {
         this.name = name;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
+    
+    
 }
