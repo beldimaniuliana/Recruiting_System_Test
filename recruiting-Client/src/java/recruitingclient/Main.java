@@ -3,22 +3,30 @@ package recruitingclient;
 
 import javax.ejb.EJB;
 import recruiting.entity.Group;
+import recruiting.entity.Person;
+import recruiting.entity.PersonDetail;
 import recruiting.request.Request;
+import recruiting.request.RequestBean;
 
 
 public class Main {
     @EJB
-    private static Request request;
-    //private static Request user;
+    private static RequestBean request;
 
     public static void main(String[] args) {
         //request.createTest2(6, "Test1");
         //request.createTest("100", "Mama",4);
         
-        request.createPerson(6, "Iuliana");
-        request.createPersonDetails(1, "303030", "Engeneer", 123);
+        Person person = new Person(8, "Iuliana");
+        PersonDetail personDetail = new PersonDetail(9, "303030", "Engeneer", 123);
+        person.setpDetail(personDetail);
+        request.createPerson(person);
+        
+        
+        //request.createPerson(6, "Iuliana");
+        //request.createPersonDetails(1, "303030", "Engeneer", 123);
         //request.createPersonWithDetails(2, "Eu", 2, "deas", "adas", 252);
-                
+          
         
         
         
@@ -27,7 +35,7 @@ public class Main {
         //request.createCandidate(1, "first_name", "last_name");
         //request.createJob(1, "position", "requirements", "locuri", "status", "data");
         //request.addCandidate(1, 1);
-        // delete din tabelele job, candidate + tabela de legatura
+        //delete din tabelele job, candidate + tabela de legatura
         //request.removeCandidate(1);
         //request.removeJob(1);
         //request.createGroup(1, "name");

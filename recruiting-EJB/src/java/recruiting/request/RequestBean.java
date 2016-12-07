@@ -34,11 +34,11 @@ public class RequestBean implements Request{
         em.persist(test2);
     }
     
-    
+    public void createPerson(Person person){  
+        em.persist(person);
+    }
     public void createPerson(int personId, String personName){
-        Person person = new Person(personId, personName);
-        //person.getpDetail();  
-        person.setpDetail(person.pDetail);
+        Person person = new Person(personId, personName); 
         em.persist(person);
     }
     public void createPersonDetails(int personDetailId, String zipCode, String job, double income){
@@ -47,9 +47,8 @@ public class RequestBean implements Request{
     }
     public void createPersonWithDetails(int personId, String personName, int personDetailId, String zipCode, String job, double income){
          Person person = new Person(personId, personName);
-    
          PersonDetail personDetail = new PersonDetail(personDetailId, zipCode, job, income);
-        
+       
          em.persist(person);
          em.persist(personDetail);
     }
