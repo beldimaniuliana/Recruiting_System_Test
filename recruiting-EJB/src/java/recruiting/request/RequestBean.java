@@ -11,8 +11,11 @@ import javax.persistence.PersistenceContext;
 import recruiting.entity.Candidate;
 import recruiting.entity.Group;
 import recruiting.entity.Job;
+import recruiting.entity.Person;
+import recruiting.entity.PersonDetail;
 import recruiting.entity.Privilage;
 import recruiting.entity.Test;
+import recruiting.entity.Test2;
 import recruiting.entity.User;
 
 
@@ -26,6 +29,33 @@ public class RequestBean implements Request{
         Test test = new Test(id, name);
         em.persist(test);
     }
+    public void createTest2(int id, String name){
+        Test2 test2 = new Test2(id, name);
+        em.persist(test2);
+    }
+    
+    
+    public void createPerson(int personId, String personName){
+        Person person = new Person(personId, personName);
+        //person.getpDetail();  
+        person.setpDetail(person.pDetail);
+        em.persist(person);
+    }
+    public void createPersonDetails(int personDetailId, String zipCode, String job, double income){
+        PersonDetail personDetail = new PersonDetail(personDetailId, zipCode, job, income);
+        em.persist(personDetail);
+    }
+    public void createPersonWithDetails(int personId, String personName, int personDetailId, String zipCode, String job, double income){
+         Person person = new Person(personId, personName);
+    
+         PersonDetail personDetail = new PersonDetail(personDetailId, zipCode, job, income);
+        
+         em.persist(person);
+         em.persist(personDetail);
+    }
+    
+    
+    
     
     public void createJob(int id, String position, String requirements, String locuri, String status, String data){
         Job job = new Job(id,position,requirements,locuri,status,data);

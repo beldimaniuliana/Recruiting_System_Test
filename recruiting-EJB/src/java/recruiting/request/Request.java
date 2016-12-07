@@ -3,11 +3,20 @@ package recruiting.request;
 
 import javax.ejb.Remote;
 import recruiting.entity.Group;
+import recruiting.entity.Test2;
 
 @Remote
 public interface Request {
     
     void createTest(String id, String name);
+    void createTest2(int id, String name);
+    
+    void createPerson(int personId, String personName);
+    void createPersonDetails(int personDetailId, String zipCode, String job, double income);
+    void createPersonWithDetails(int personId, String personName, int personDetailId, String zipCode, String job, double income);
+    
+   
+    
     
     void createJob(int id, String position, String requirements, String locuri, String status, String data);
   
@@ -22,7 +31,11 @@ public interface Request {
     void removeJob(int jobId);
     
     void createGroup(int id, String name);
+    
     void addPrivilage(int privilageId,int groupId);
+    
+    
+   
 
 }
 

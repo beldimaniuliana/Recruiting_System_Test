@@ -29,11 +29,11 @@ public class Job implements java.io.Serializable {
      private String data;
     
      
-     public Job() {
+    public Job() {
     }
      
      
-      public Job(int id, String position, String requirements, String locuri, String status, String data) {
+    public Job(int id, String position, String requirements, String locuri, String status, String data) {
         this.id = id;
         this.position = position;
         this.requirements = requirements;

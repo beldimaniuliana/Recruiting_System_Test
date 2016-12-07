@@ -13,9 +13,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
-
+@Table(name = "EJB_GROUP")
 public class Group implements Serializable 
 {
     @Id

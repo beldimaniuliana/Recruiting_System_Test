@@ -10,8 +10,16 @@ import javax.persistence.Table;
 public class Test2 {
 
     @Id
-    private Long id;
+    private int id;
     private String name;
+    
+    public Test2() {
+    }
+
+    public Test2(int id, String name) {
+       this.id = id;
+       this.name = name;
+    }
 
     public String getName() {
         return name;
@@ -21,11 +29,11 @@ public class Test2 {
         this.name = name;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     
