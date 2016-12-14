@@ -20,8 +20,6 @@ public class User {
     private String phone;
     private String active;
 
-    
-
     public User(int id, String username, String password, String first_name, String last_name, Group Id_group, String email, String phone, String active) {
         this.id = id;
         this.username = username;
@@ -37,6 +35,13 @@ public class User {
     public User() {
     }
 
+    public Group getId_group() {
+        return Id_group;
+    }
+
+    public void setId_group(Group Id_group) {
+        this.Id_group = Id_group;
+    }
     
     public int getId() {
         return id;

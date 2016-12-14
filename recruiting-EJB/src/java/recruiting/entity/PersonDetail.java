@@ -9,6 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "EJB_PersonDetail")
 public class PersonDetail {
+  
     public int personDetailId;
     public String zipCode;
     public String job;
