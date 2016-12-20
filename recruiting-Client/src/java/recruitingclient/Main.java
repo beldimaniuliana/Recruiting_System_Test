@@ -7,7 +7,7 @@ import recruiting.entity.Person;
 import recruiting.entity.PersonDetail;
 import recruiting.request.Request;
 import recruiting.request.RequestBean;
-//test
+//testfuisdahjadfhjdsafdskjdf
 public class Main {
     @EJB
     private static Request request;
