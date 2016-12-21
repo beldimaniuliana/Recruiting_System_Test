@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" v="2.7.1" status="GENERATED" sm="false" xs="false" id="_148198299624816" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:entity xre="false" abs="false" class="Candidate" v="true" minimized="false" rootElement="_148198299624816" id="_148198299624817">
+        <jpa:attributes>
+            <jpa:many-to-one optional="false" connected-entity-id="_148198299624821" connected-attribute-id="_148198299624944" v="true" name="idPerson" id="_148198299624827">
+                <jpa:bv/>
+                <jpa:join-column name="ID_PERSON" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one optional="false" connected-entity-id="_148198299624823" connected-attribute-id="_148198299624954" v="true" name="idJob" id="_148198299624828">
+                <jpa:bv/>
+                <jpa:join-column name="ID_JOB" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many own="false" connected-entity-id="_148198299624823" connected-attribute-id="_148198299624955" v="true" name="jobCollection" id="_148198299624829">
+                <jpa:bv/>
+            </jpa:one-to-many>
+            <jpa:id attribute-type="Integer" v="true" name="id" id="_148198299624826">
+                <jpa:bv/>
+                <jpa:column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="candidate"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:table name="candidate"/>
+    </jpa:entity>
+    <jpa:entity xre="false" abs="false" class="Test2" v="true" minimized="false" rootElement="_148198299624816" id="_148198299624818">
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="name" id="_148198299624931">
+                <jpa:bv/>
+                <jpa:column name="name" unique="false" nullable="false" insertable="true" updatable="true" table="test2" length="200"/>
+            </jpa:basic>
+            <jpa:one-to-many own="false" connected-entity-id="_148198299624820" connected-attribute-id="_148198299624939" v="true" name="testCollection" id="_148198299624932">
+                <jpa:bv/>
+            </jpa:one-to-many>
+            <jpa:id attribute-type="Integer" v="true" name="id" id="_148198299624930">
+                <jpa:bv/>
+                <jpa:column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="test2"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:table name="test2"/>
+    </jpa:entity>
+    <jpa:entity xre="false" abs="false" class="Role" v="true" minimized="false" rootElement="_148198299624816" id="_148198299624819">
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="name" id="_148198299624934">
+                <jpa:bv/>
+                <jpa:column name="name" unique="false" nullable="false" insertable="true" updatable="true" table="role" length="200"/>
+            </jpa:basic>
+            <jpa:many-to-one optional="false" connected-entity-id="_148198299624822" connected-attribute-id="_148198299624948" v="true" name="idPrivilage" id="_148198299624935">
+                <jpa:bv/>
+                <jpa:join-column name="ID_PRIVILAGE" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many own="false" connected-entity-id="_148198299624824" connected-attribute-id="_148198299624965" v="true" name="userCollection" id="_148198299624936">
+                <jpa:bv/>
+            </jpa:one-to-many>
+            <jpa:id attribute-type="Integer" v="true" name="id" id="_148198299624933">
+                <jpa:bv/>
+                <jpa:column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="role"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:table name="role"/>
+    </jpa:entity>
+    <jpa:entity xre="false" abs="false" class="Test" v="true" minimized="false" rootElement="_148198299624816" id="_148198299624820">
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="name" id="_148198299624938">
+                <jpa:bv/>
+                <jpa:column name="name" unique="false" nullable="false" insertable="true" updatable="true" table="test" length="200"/>
+            </jpa:basic>
+            <jpa:many-to-one optional="false" connected-entity-id="_148198299624818" connected-attribute-id="_148198299624932" v="true" name="idTest" id="_148198299624939">
+                <jpa:bv/>
+                <jpa:join-column name="ID_TEST" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:id attribute-type="Integer" v="true" name="id" id="_148198299624937">
+                <jpa:bv/>
+                <jpa:column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="test"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:table name="test"/>
+    </jpa:entity>
+    <jpa:entity xre="false" abs="false" class="Person" v="true" minimized="false" rootElement="_148198299624816" id="_148198299624821">
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="firstName" id="_148198299624941">
+                <jpa:bv/>
+                <jpa:column name="first_name" unique="false" nullable="false" insertable="true" updatable="true" table="person" length="200"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="lastName" id="_148198299624942">
+                <jpa:bv/>
+                <jpa:column name="last_name" unique="false" nullable="false" insertable="true" updatable="true" table="person" length="200"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="byte []" v="true" name="cv" id="_148198299624943">
+                <jpa:bv/>
+                <jpa:column name="CV" unique="false" nullable="false" insertable="true" updatable="true" table="person"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many own="false" connected-entity-id="_148198299624817" connected-attribute-id="_148198299624827" v="true" name="candidateCollection" id="_148198299624944">
+                <jpa:bv/>
+            </jpa:one-to-many>
+            <jpa:id attribute-type="Integer" v="true" name="id" id="_148198299624940">
+                <jpa:bv/>
+                <jpa:column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="person"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:table name="person"/>
+    </jpa:entity>
+    <jpa:entity xre="false" abs="false" class="Privilage" v="true" minimized="false" rootElement="_148198299624816" id="_148198299624822">
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="name" id="_148198299624946">
+                <jpa:bv/>
+                <jpa:column name="name" unique="false" nullable="false" insertable="true" updatable="true" table="privilage" length="200"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="description" id="_148198299624947">
+                <jpa:bv/>
+                <jpa:column name="description" unique="false" nullable="false" insertable="true" updatable="true" table="privilage" length="1000"/>
+            </jpa:basic>
+            <jpa:one-to-many own="false" connected-entity-id="_148198299624819" connected-attribute-id="_148198299624935" v="true" name="roleCollection" id="_148198299624948">
+                <jpa:bv/>
+            </jpa:one-to-many>
+            <jpa:id attribute-type="Integer" v="true" name="id" id="_148198299624945">
+                <jpa:bv/>
+                <jpa:column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="privilage"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:table name="privilage"/>
+    </jpa:entity>
+    <jpa:entity xre="false" abs="false" class="Job" v="true" minimized="false" rootElement="_148198299624816" id="_148198299624823">
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="position" id="_148198299624950">
+                <jpa:bv/>
+                <jpa:column name="position" unique="false" nullable="false" insertable="true" updatable="true" table="job" length="200"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="requirements" id="_148198299624951">
+                <jpa:bv/>
+                <jpa:column name="requirements" unique="false" nullable="false" insertable="true" updatable="true" table="job" length="1000"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="java.util.Date" v="true" name="date" id="_148198299624952">
+                <jpa:bv/>
+                <jpa:temporal>DATE</jpa:temporal>
+                <jpa:column name="date" unique="false" nullable="false" insertable="true" updatable="true" table="job"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="int" v="true" name="noSpot" id="_148198299624953">
+                <jpa:bv/>
+                <jpa:column name="no_spot" unique="false" nullable="false" insertable="true" updatable="true" table="job"/>
+            </jpa:basic>
+            <jpa:many-to-one optional="false" connected-entity-id="_148198299624817" connected-attribute-id="_148198299624829" v="true" name="idCandidate" id="_148198299624955">
+                <jpa:bv/>
+                <jpa:join-column name="ID_CANDIDATE" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one optional="false" connected-entity-id="_148198299624825" connected-attribute-id="_148198299624968" v="true" name="idStatus" id="_148198299624956">
+                <jpa:bv/>
+                <jpa:join-column name="ID_STATUS" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many own="false" connected-entity-id="_148198299624817" connected-attribute-id="_148198299624828" v="true" name="candidateCollection" id="_148198299624954">
+                <jpa:bv/>
+            </jpa:one-to-many>
+            <jpa:id attribute-type="Integer" v="true" name="id" id="_148198299624949">
+                <jpa:bv/>
+                <jpa:column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="job"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:table name="job"/>
+    </jpa:entity>
+    <jpa:entity xre="false" abs="false" class="User" v="true" minimized="false" rootElement="_148198299624816" id="_148198299624824">
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="username" id="_148198299624958">
+                <jpa:bv/>
+                <jpa:column name="username" unique="false" nullable="false" insertable="true" updatable="true" table="user" length="200"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="password" id="_148198299624959">
+                <jpa:bv/>
+                <jpa:column name="password" unique="false" nullable="false" insertable="true" updatable="true" table="user" length="200"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="firstName" id="_148198299624960">
+                <jpa:bv/>
+                <jpa:column name="first_name" unique="false" nullable="false" insertable="true" updatable="true" table="user" length="200"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="lastName" id="_148198299624961">
+                <jpa:bv/>
+                <jpa:column name="last_name" unique="false" nullable="false" insertable="true" updatable="true" table="user" length="200"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="email" id="_148198299624962">
+                <jpa:bv/>
+                <jpa:column name="email" unique="false" nullable="false" insertable="true" updatable="true" table="user" length="200"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="int" v="true" name="phone" id="_148198299624963">
+                <jpa:bv/>
+                <jpa:column name="phone" unique="false" nullable="false" insertable="true" updatable="true" table="user"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="int" v="true" name="active" id="_148198299624964">
+                <jpa:bv/>
+                <jpa:column name="active" unique="false" nullable="false" insertable="true" updatable="true" table="user"/>
+            </jpa:basic>
+            <jpa:many-to-one optional="false" connected-entity-id="_148198299624819" connected-attribute-id="_148198299624936" v="true" name="idGroup" id="_148198299624965">
+                <jpa:bv/>
+                <jpa:join-column name="ID_GROUP" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:id attribute-type="Integer" v="true" name="id" id="_148198299624957">
+                <jpa:bv/>
+                <jpa:column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="user"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:table name="user"/>
+    </jpa:entity>
+    <jpa:entity xre="false" abs="false" class="Status" v="true" minimized="false" rootElement="_148198299624816" id="_148198299624825">
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" v="true" name="name" id="_148198299624967">
+                <jpa:bv/>
+                <jpa:column name="name" unique="false" nullable="false" insertable="true" updatable="true" table="status" length="200"/>
+            </jpa:basic>
+            <jpa:one-to-many own="false" connected-entity-id="_148198299624823" connected-attribute-id="_148198299624956" v="true" name="jobCollection" id="_148198299624968">
+                <jpa:bv/>
+            </jpa:one-to-many>
+            <jpa:id attribute-type="Integer" v="true" name="id" id="_148198299624966">
+                <jpa:bv/>
+                <jpa:column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="status"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:table name="status"/>
+    </jpa:entity>
+    <jpa:snp e="true" loc="BEFORE_PACKAGE">/**
+ * This file was generated by the JPA Modeler
+ */</jpa:snp>
+    <jpa:inf e="true" n="java.io.Serializable"/>
+    <jpa:diagram>
+        <plane elementRef="_148198299624816"/>
+    </jpa:diagram>
+</jpa:entity-mappings>
